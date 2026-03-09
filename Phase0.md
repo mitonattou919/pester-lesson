@@ -158,6 +158,28 @@ MyProject/
 
 Phase 0の最後に、実際にPesterを動かしてみましょう。
 
+### 5-0. ディレクトリ構造を用意する
+
+この演習では、テスト対象のスクリプトとテストファイルを**同じフォルダ**に置きます。
+
+```
+PesterDemo/          ← 新しく作るフォルダ
+├── Get-Greeting.ps1
+└── Get-Greeting.Tests.ps1
+```
+
+> **なぜ同じフォルダ？**
+> テストファイル内の `$PSScriptRoot` は「テストファイル自身が置かれているフォルダ」を指します。
+> 両ファイルが同じ場所にあれば、`$PSScriptRoot/Get-Greeting.ps1` で確実に本体を読み込めます。
+> （`src/` と `tests/` を分ける構成はPhase 1以降で扱います）
+
+まず作業用フォルダを作り、そこに移動してください：
+
+```powershell
+New-Item -ItemType Directory -Name PesterDemo
+Set-Location PesterDemo
+```
+
 ### 5-1. テスト対象のスクリプトを作成
 
 ```powershell
