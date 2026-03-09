@@ -103,11 +103,24 @@ $value | Should -BeLessOrEqual 10
 42          | Should -BeOfType [int]
 "hello"     | Should -BeOfType [string]
 3.14        | Should -BeOfType [double]
-@(1, 2, 3)  | Should -BeOfType [array]
+,@(1, 2, 3) | Should -BeOfType [array]
 
 # カスタムクラスや .NET 型
 Get-Date    | Should -BeOfType [DateTime]
 ```
+
+> **注意：配列を `-BeOfType` で検証するときは先頭に `,` を付ける**
+> PowerShell のパイプラインは配列を自動展開（unroll）するため、`@(1, 2, 3) | ...` と書くと
+> 配列全体ではなく要素 `1`, `2`, `3` が個別に渡されてしまいます。
+> 先頭に単項コンマ `,` を付けると「配列そのもの」をパイプできます。
+>
+> ```powershell
+> # NG: 要素 1（int）の型を検証してしまい失敗する
+> @(1, 2, 3)  | Should -BeOfType [array]
+>
+> # OK: 配列のまま渡す
+> ,@(1, 2, 3) | Should -BeOfType [array]
+> ```
 
 ### 4-2. -BeNullOrEmpty：null または空
 
