@@ -494,4 +494,4 @@ Describe "ConvertTo-UpperCase" {
 
 ---
 
-**次のステップ:** Phase 2では `Should` のさまざまなマッチャー（`-Contain` / `-Match` / `-BeLessThan` など）を学びます。
+**次のステップ:** [Phase 2](Phase2.md)では `Should` のさまざまなマッチャー（`-Contain` / `-Match` / `-BeLessThan` など）を学びます。

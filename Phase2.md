@@ -560,4 +560,4 @@ $dateStr | Should -Match "^\d{4}-\d{2}-\d{2}$"
 
 ---
 
-**次のステップ:** Phase 3では `BeforeAll` / `AfterAll` / `BeforeEach` / `AfterEach` を使ったセットアップとティアダウンを学びます。
+**次のステップ:** [Phase 3](Phase3.md)では `BeforeAll` / `AfterAll` / `BeforeEach` / `AfterEach` を使ったセットアップとティアダウンを学びます。

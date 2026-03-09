@@ -309,4 +309,4 @@ Describe "Add-Numbers" {
 
 ---
 
-**次のステップ:** Phase 1では `Describe` / `It` / `Should` の基礎構文を詳しく学びます。
+**次のステップ:** [Phase 1](Phase1.md)では `Describe` / `It` / `Should` の基礎構文を詳しく学びます。
