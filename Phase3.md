@@ -642,4 +642,4 @@ Describe "Export-CsvData" {
 
 ---
 
-**次のステップ:** Phase 4では `Mock` を使った外部依存の切り離し方を学びます。
+**次のステップ:** [Phase 4](Phase4.md)では `Mock` を使った外部依存の切り離し方を学びます。
