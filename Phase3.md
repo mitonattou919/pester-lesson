@@ -283,9 +283,11 @@ function Get-LogEntries {
 
     $lines = Get-Content -Path $LogFile
     if ($Level) {
-        return $lines | Where-Object { $_ -match "\[$Level\]" }
+        # @() で囲むことで結果が1件でも必ず配列として返す
+        # （PowerShell はパイプラインが1要素のとき配列を展開してしまう）
+        return @($lines | Where-Object { $_ -match "\[$Level\]" })
     }
-    return $lines
+    return @($lines)
 }
 ```
 
@@ -375,7 +377,8 @@ Describe "Get-LogEntries" {
     }
 
     It "ERROR フィルターで ERROR エントリだけ返す" {
-        $entries = Get-LogEntries -LogFile $script:logFile -Level "ERROR"
+        # @() で受け取ることで結果が1件でも配列として扱える
+        $entries = @(Get-LogEntries -LogFile $script:logFile -Level "ERROR")
         $entries | Should -HaveCount 1
         $entries[0] | Should -Match "エラー1"
     }
